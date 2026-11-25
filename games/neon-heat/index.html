@@ -238,7 +238,7 @@ function gen(L){
   if(k<.15){c+=ri(2,3);flat(ri(3,5));}
   else if(k<.27){const s=c;c+=6;g[top-1][s+2]='=';g[top-1][s+3]='=';ents.push({type:'cash',x:(s+2)*T+4,y:(top-2)*T},{type:'cash',x:(s+3)*T+4,y:(top-2)*T});flat(4);}
   else if(k<.4){top=clamp(top+[-2,-1,1,2][ri(0,3)],7,11);flat(ri(5,8));}
-  else if(k<.57){const n=ri(10,14);flat(n);const m=ri(3,5),s=c0+ri(3,4);for(let i=0;i<m;i++)g[top-4][s+i]='?';if(r()<.6)g[top-4][s+ri(0,m-1)]='P';if(r()<L.dens)en(r()<.7?'cop':'dog',c0+n-2);}
+  else if(k<.57){const n=ri(10,14);flat(n);const m=ri(3,5),s=c0+ri(3,4);for(let i=0;i<m;i++)g[top-3][s+i]='?';if(r()<.6)g[top-3][s+ri(0,m-1)]='P';if(r()<L.dens)en(r()<.7?'cop':'dog',c0+n-2);}
   else if(k<.7){const n=12;flat(n);const m=ri(4,5);for(let i=0;i<m;i++){g[top-3][c0+3+i]='=';ents.push({type:'cash',x:(c0+3+i)*T+4,y:(top-4)*T+2});}if(r()<L.dens)en('drone',c0+ri(4,9));if(r()<L.dens)en('cop',c0+n-2);}
   else if(k<.83){const n=ri(9,12);flat(n);const s=c0+ri(3,5),h=ri(1,2);for(let y=1;y<=h;y++)g[top-y][s]=block;if(r()<.5){g[top-1][s+1]=block;}if(r()<L.dens)en('dog',c0+n-1);}
   else{const n=ri(11,16);flat(n);const m=1+Math.round(r()*L.dens*2);for(let i=0;i<m;i++)en(r()<.6?'cop':(r()<.5?'dog':'drone'),c0+4+Math.floor(i*(n-5)/m));cashArc(c0+2,5,(top-3)*T);}
@@ -321,7 +321,7 @@ function updPlayer(){
  p.vx=clamp(p.vx,-max,max);if(Math.abs(p.vx)<.05)p.vx=0;
  if(hit.j)p.jb=7;else if(p.jb>0)p.jb--;
  if(p.jb>0&&p.coy>0){p.vy=p.car?-6.6:-7.5;p.jb=0;p.coy=0;sfx('jump');}
- if(!keys.j&&p.vy<-2.6)p.vy=-2.6;
+ if(!keys.j&&p.vy<-3.4)p.vy=-3.4;
  p.vy=Math.min(8,p.vy+.42);
  move(p);
  p.coy=p.on?6:p.coy-1;
